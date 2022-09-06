@@ -1,0 +1,85 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "final_space": true,
+  "version": 2,
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#ffdd00",
+          "style": "plain",
+          "template": "{{ .UserName }} ",
+          "type": "session"
+        },
+        {
+          "foreground": "cyan",
+          "properties": {
+            "style": "folder"
+          },
+          "style": "plain",
+          "template": "<#6a6a6a>in</> <#969696>{{ if hasPrefix \"/mnt\" .PWD }}<f>\uf17a</f>{{ else }}<f>\uf306</f>{{ end }}</> {{ .Path }}",
+          "type": "path"
+        },
+        {
+          "foreground": "#ff94df",
+          "properties": {
+            "branch_icon": " <#ff94df><b>\ue0a0 </b></>",
+            "fetch_stash_count": true
+          },
+          "style": "plain",
+          "template": "<#ffffff>on</> {{ .HEAD }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "foreground": "#535353",
+          "properties": {
+            "style": "dallas",
+            "threshold": 0
+          },
+          "style": "diamond",
+          "template": "<#9f9f9f>\ufa1a</>{{ .FormattedMs }}s <#9f9f9f>\uf6dc</>",
+          "type": "executiontime"
+        },
+        {
+          "style": "diamond",
+          "template": " \uf6dc ",
+          "type": "root"
+        },
+        {
+          "foreground": "#535353",
+          "style": "diamond",
+          "template": " <#9f9f9f>cpu</> {{ round .PhysicalPercentUsed .Precision }}% ",
+          "type": "sysinfo"
+        },
+        {
+          "foreground": "#535353",
+          "style": "diamond",
+          "template": "<#9f9f9f>\uf6dc</> <#9f9f9f>ram</> {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}gb",
+          "type": "sysinfo"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "lightGreen",
+          "style": "plain",
+          "template": "\ufb0c",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ]
+}
