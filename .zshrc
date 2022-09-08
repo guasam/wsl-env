@@ -115,3 +115,9 @@ eval "$(oh-my-posh init zsh --config ~/.poshthemes/guasam.omp.json)"
 alias guasam=cd\ /mnt/d/Guasam
 alias workbench=cd\ /mnt/d
 
+postcmd() { print "c" }
+
+# Disable Underline
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
