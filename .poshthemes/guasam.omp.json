@@ -7,8 +7,10 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#ffdd00",
+          "foreground": "#6a6a6a",
           "style": "plain",
+		  "__foreground": "#ffdd00",
+          "__template": "{{ .UserName }} ",
           "template": "{{ .UserName }} ",
           "type": "session"
         },
@@ -18,7 +20,7 @@
             "style": "folder"
           },
           "style": "plain",
-          "template": "<#6a6a6a>in</> <#969696>{{ if hasPrefix \"/mnt\" .PWD }}<f>\uf17a</f>{{ else }}<f>\uf306</f>{{ end }}</> {{ .Path }} ",
+          "template": "{{ if hasPrefix \"/mnt\" .PWD }}<#3a8ad2>\uf17a </>{{ else }}<#fc5e1e>\uf306 </>{{ end }}<#6a6a6a>\ue602</> {{ .Path }} ",
           "type": "path"
         },
         {
